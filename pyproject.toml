@@ -5,6 +5,8 @@ description = "A task graph for research pipelines: a task is a function, an art
 readme = "README.md"
 requires-python = ">=3.13"
 authors = []
+license = "Apache-2.0"
+license-file = ["LICENSE"]
 
 
 dependencies = [
