@@ -12,7 +12,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-import numpy as np
 import pytest
 
 from ediechain.core.converters import by_init_params
@@ -187,6 +186,7 @@ class TestTransparent:
 
     def test_defaults_are_compared_by_encoding_not_by_equality(self):
         """`array == None` is elementwise, and its truth value raises."""
+        np = pytest.importorskip("numpy")
 
         class Model:
             def __init__(self, weights: np.ndarray | None = None) -> None:

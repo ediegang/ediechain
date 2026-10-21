@@ -250,10 +250,12 @@ backends = [
 ]
 
 [package.dev-dependencies]
-dev = [
+backends = [
     { name = "accelerate" },
     { name = "numpy" },
     { name = "polars" },
+]
+dev = [
     { name = "pytest" },
     { name = "ruff" },
     { name = "ty" },
@@ -274,10 +276,12 @@ requires-dist = [
 provides-extras = ["accelerate", "backends", "all"]
 
 [package.metadata.requires-dev]
-dev = [
+backends = [
     { name = "accelerate", specifier = ">=1.15.0" },
     { name = "numpy", specifier = ">=2.5.3" },
     { name = "polars", specifier = ">=1.44.2" },
+]
+dev = [
     { name = "pytest" },
     { name = "ruff" },
     { name = "ty", specifier = ">=0.0.84" },

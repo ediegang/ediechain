@@ -20,18 +20,24 @@ all = ["ediechain[accelerate,backends]"]
 
 [dependency-groups]
 dev = [
-    "accelerate>=1.15.0",
-    "numpy>=2.5.3",
-    "polars>=1.44.2",
     "pytest",
     "ruff",
     "ty>=0.0.84",
+]
+
+backends = [
+    "accelerate>=1.15.0",
+    "numpy>=2.5.3",
+    "polars>=1.44.2",
 ]
 
 tools = [
     "debugpy",
     "marimo>=0.25.1",
 ]
+
+[tool.uv]
+default-groups = ["dev", "backends"]
 
 [[tool.uv.index]]
 name = "seznam-pypi-staging"
@@ -42,6 +48,15 @@ explicit = true
 [build-system]
 requires = ["uv_build>=0.8.24,<0.9.0"]
 build-backend = "uv_build"
+
+# CI runs without the backends; the backend modules are type-checked only where they are installed.
+[tool.ty.analysis]
+allowed-unresolved-imports = [
+    "numpy", "numpy.**",
+    "polars", "polars.**",
+    "accelerate", "accelerate.**",
+    "torch", "torch.**",
+]
 
 [tool.ruff]
 line-length = 120

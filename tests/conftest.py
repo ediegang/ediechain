@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import contextlib
 import inspect
 from collections.abc import Iterable
 from typing import Any
@@ -8,8 +9,12 @@ import pytest
 
 from ediechain.core import registry
 from ediechain.core.task import TaskDef
-from ediechain.encoders import numpy as _numpy_encoders  # noqa: F401
-from ediechain.encoders import polars as _polars_encoders  # noqa: F401
+
+# CI runs without the backends, so each one is registered only where it is installed.
+with contextlib.suppress(ImportError):
+    from ediechain.encoders import numpy as _numpy_encoders  # noqa: F401
+with contextlib.suppress(ImportError):
+    from ediechain.encoders import polars as _polars_encoders  # noqa: F401
 
 _REGISTRY_TABLES = (registry._CONVERTERS, registry._NAMES, registry._TAGS)
 
