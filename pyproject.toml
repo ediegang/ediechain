@@ -1,10 +1,10 @@
 [project]
 name = "ediechain"
-version = "0.0.0"
+version = "0.0.1"
 description = "A task graph for research pipelines: a task is a function, an artifact is addressed by the arguments that produced it."
 readme = "README.md"
 requires-python = ">=3.13"
-authors = []
+authors = [{ name = "Artyom Voronin", email = "artyom.voronin@firma.seznam.cz" }]
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 

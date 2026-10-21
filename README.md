@@ -1,6 +1,6 @@
 # Ediechain
 
-![Ediechain logo](./assets/logo.png)
+![Ediechain logo](https://raw.githubusercontent.com/ediegang/ediechain/main/assets/logo.png)
 
 A task graph for research pipelines. A task is a function. Calling it builds a node, not a
 result. A node's key is the hash of its arguments, so an artifact is found by what produced it
