@@ -1,0 +1,18 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local reference sources
+playground/
+CLAUDE.local.md
+TODO.md
+
+# Artifacts written by the examples
+.artifacts/

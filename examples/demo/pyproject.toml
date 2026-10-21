@@ -1,0 +1,46 @@
+[project]
+name = "demo"
+version = "0.1.0"
+description = "A repository that uses ediechain: library in src, experiments in configs, notebooks on top."
+requires-python = ">=3.13"
+
+dependencies = [
+    "ediechain",
+    "polars>=1.44.2",
+]
+
+[dependency-groups]
+tools = [
+    "marimo>=0.25.1",
+]
+
+# A real repository installs ediechain from the internal index. The demo lives inside the
+# ediechain checkout, so it points at the working tree and picks up local changes immediately.
+[tool.uv.sources]
+ediechain = { path = "../..", editable = true }
+
+[build-system]
+requires = ["uv_build>=0.8.24,<0.9.0"]
+build-backend = "uv_build"
+
+# `configs` is not part of the installed package, and marimo puts the *notebook's* directory on
+# `sys.path`, not the project root. This puts the root back, so a notebook can import a config
+# the ordinary way. It resolves against the working directory, so run marimo from here.
+[tool.marimo.runtime]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+preview = true
+target-version = "py313"
+
+# A marimo notebook is written by the marimo kernel, not by hand. Its cells are functions that
+# end in a bare `return`, and reformatting the file behind a running kernel corrupts it.
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*.py" = [
+    "PLR1711", # useless return at the end of a cell
+    "ANN001",  # cell parameters are injected by marimo
+    "ANN201",  # cells have no return annotation
+    "ANN202",
+]

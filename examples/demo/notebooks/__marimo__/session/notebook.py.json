@@ -1,0 +1,224 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.25.1",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "5dd617f033c4117ba3c6bc13b00c1329",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "d436561fc63f43181826b870b503d51c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"experiments\">Experiments</h1>\n<span class=\"paragraph\">Every config under <code>configs/</code> exposes one <code>experiment</code>. None of them binds a runner, so\nthe store is chosen here.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "f92292c1af98204381b54f10533f93ef",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "061f56c09fc946cd28b527cd0315acb7",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "cannot encode function",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/2d/dwhqnpq12mgdt85z83c0xvzh0000gp/T/marimo_80626/__marimo__cell_bkHC_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">pipeline</span> <span class=\"o\">=</span> <span class=\"n\">v0</span><span class=\"p\">(</span><span class=\"n\">seed</span><span class=\"o\">=</span><span class=\"mi\">0</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">on</span><span class=\"p\">(</span><span class=\"n\">Runner</span><span class=\"p\">(</span><span class=\"n\">root</span><span class=\"o\">=</span><span class=\"n\">PIPELINE_DIR</span><span class=\"p\">))</span>\n<span class=\"w\">               </span><span class=\"pm\">~~^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/chain.py\"</span>, line <span class=\"m\">172</span>, in <span class=\"n\">build</span>\n<span class=\"w\">    </span><span class=\"n\">bound</span> <span class=\"o\">=</span> <span class=\"n\">runner</span> <span class=\"k\">if</span> <span class=\"n\">runner</span> <span class=\"ow\">is</span> <span class=\"ow\">not</span> <span class=\"kc\">None</span> <span class=\"k\">else</span> <span class=\"n\">Runner</span><span class=\"p\">(</span><span class=\"n\">root</span><span class=\"o\">=</span><span class=\"n\">root</span><span class=\"p\">)</span> <span class=\"k\">if</span> <span class=\"n\">root</span> <span class=\"ow\">is</span> <span class=\"ow\">not</span> <span class=\"kc\">None</span> <span class=\"k\">else</span> <span class=\"kc\">None</span>\n<span class=\"w\">                       </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/examples/demo/configs/experiment_v0.py\"</span>, line <span class=\"m\">16</span>, in <span class=\"n\">experiment</span>\n<span class=\"w\">    </span><span class=\"n\">data</span> <span class=\"o\">=</span> <span class=\"n\">features</span><span class=\"p\">(</span><span class=\"n\">raw_data</span><span class=\"p\">(</span><span class=\"n\">seed</span><span class=\"o\">=</span><span class=\"n\">seed</span><span class=\"p\">),</span> <span class=\"n\">clip_at</span><span class=\"o\">=</span><span class=\"n\">clip_at</span><span class=\"p\">)</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/task.py\"</span>, line <span class=\"m\">115</span>, in <span class=\"n\">__call__</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">definition</span><span class=\"o\">.</span><span class=\"n\">bind</span><span class=\"p\">(</span><span class=\"o\">*</span><span class=\"n\">args</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwargs</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/task.py\"</span>, line <span class=\"m\">106</span>, in <span class=\"n\">bind</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">Node</span><span class=\"p\">(</span><span class=\"n\">task</span><span class=\"o\">=</span><span class=\"bp\">self</span><span class=\"p\">,</span> <span class=\"n\">arguments</span><span class=\"o\">=</span><span class=\"n\">MappingProxyType</span><span class=\"p\">(</span><span class=\"nb\">dict</span><span class=\"p\">(</span><span class=\"n\">bound</span><span class=\"o\">.</span><span class=\"n\">arguments</span><span class=\"p\">)))</span>\n  File <span class=\"nb\">\"&lt;string&gt;\"</span>, line <span class=\"m\">5</span>, in <span class=\"n\">__init__</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/node.py\"</span>, line <span class=\"m\">75</span>, in <span class=\"n\">__post_init__</span>\n<span class=\"w\">    </span><span class=\"nb\">object</span><span class=\"o\">.</span><span class=\"fm\">__setattr__</span><span class=\"p\">(</span><span class=\"bp\">self</span><span class=\"p\">,</span> <span class=\"s2\">\"key\"</span><span class=\"p\">,</span> <span class=\"n\">compute_key</span><span class=\"p\">(</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">task</span><span class=\"p\">,</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">arguments</span><span class=\"p\">))</span>\n<span class=\"w\">                                    </span><span class=\"pm\">~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/node.py\"</span>, line <span class=\"m\">65</span>, in <span class=\"n\">compute_key</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">sha256</span><span class=\"p\">(</span><span class=\"n\">encode</span><span class=\"p\">(</span><span class=\"n\">payload</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">encode</span><span class=\"p\">())</span><span class=\"o\">.</span><span class=\"n\">hexdigest</span><span class=\"p\">()[:</span><span class=\"mi\">32</span><span class=\"p\">]</span>\n<span class=\"w\">                  </span><span class=\"pm\">~~~~~~^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">21</span>, in <span class=\"n\">encode</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">json</span><span class=\"o\">.</span><span class=\"n\">dumps</span><span class=\"p\">(</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">),</span> <span class=\"n\">ensure_ascii</span><span class=\"o\">=</span><span class=\"kc\">False</span><span class=\"p\">,</span> <span class=\"n\">separators</span><span class=\"o\">=</span><span class=\"p\">(</span><span class=\"s2\">\",\"</span><span class=\"p\">,</span> <span class=\"s2\">\":\"</span><span class=\"p\">))</span>\n<span class=\"w\">                      </span><span class=\"pm\">~~~~~^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">68</span>, in <span class=\"n\">_tree</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">tag</span><span class=\"p\">,</span> <span class=\"n\">build</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">)</span>\n<span class=\"w\">                </span><span class=\"pm\">~~~~~^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;lambda&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                 </span><span class=\"pm\">~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;genexpr&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                                   </span><span class=\"pm\">~~~~~^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">68</span>, in <span class=\"n\">_tree</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">tag</span><span class=\"p\">,</span> <span class=\"n\">build</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">)</span>\n<span class=\"w\">                </span><span class=\"pm\">~~~~~^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;lambda&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                 </span><span class=\"pm\">~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;genexpr&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                                   </span><span class=\"pm\">~~~~~^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">69</span>, in <span class=\"n\">_tree</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">_foreign</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">)</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">54</span>, in <span class=\"n\">_foreign</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">tag</span><span class=\"p\">,</span> <span class=\"n\">_tree</span><span class=\"p\">({</span><span class=\"n\">f</span><span class=\"o\">.</span><span class=\"n\">name</span><span class=\"p\">:</span> <span class=\"nb\">getattr</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">,</span> <span class=\"n\">f</span><span class=\"o\">.</span><span class=\"n\">name</span><span class=\"p\">)</span> <span class=\"k\">for</span> <span class=\"n\">f</span> <span class=\"ow\">in</span> <span class=\"n\">dataclasses</span><span class=\"o\">.</span><span class=\"n\">fields</span><span class=\"p\">(</span><span class=\"bp\">cls</span><span class=\"p\">)})</span>\n<span class=\"w\">                </span><span class=\"pm\">~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">68</span>, in <span class=\"n\">_tree</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">tag</span><span class=\"p\">,</span> <span class=\"n\">build</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">)</span>\n<span class=\"w\">                </span><span class=\"pm\">~~~~~^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;lambda&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                 </span><span class=\"pm\">~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;genexpr&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                                   </span><span class=\"pm\">~~~~~^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">69</span>, in <span class=\"n\">_tree</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">_foreign</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">)</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">54</span>, in <span class=\"n\">_foreign</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">tag</span><span class=\"p\">,</span> <span class=\"n\">_tree</span><span class=\"p\">({</span><span class=\"n\">f</span><span class=\"o\">.</span><span class=\"n\">name</span><span class=\"p\">:</span> <span class=\"nb\">getattr</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">,</span> <span class=\"n\">f</span><span class=\"o\">.</span><span class=\"n\">name</span><span class=\"p\">)</span> <span class=\"k\">for</span> <span class=\"n\">f</span> <span class=\"ow\">in</span> <span class=\"n\">dataclasses</span><span class=\"o\">.</span><span class=\"n\">fields</span><span class=\"p\">(</span><span class=\"bp\">cls</span><span class=\"p\">)})</span>\n<span class=\"w\">                </span><span class=\"pm\">~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">68</span>, in <span class=\"n\">_tree</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">tag</span><span class=\"p\">,</span> <span class=\"n\">build</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">)</span>\n<span class=\"w\">                </span><span class=\"pm\">~~~~~^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;lambda&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                 </span><span class=\"pm\">~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">35</span>, in <span class=\"n\">&lt;genexpr&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">dict</span><span class=\"p\">:</span> <span class=\"p\">(</span><span class=\"s2\">\"dict\"</span><span class=\"p\">,</span> <span class=\"k\">lambda</span> <span class=\"n\">value</span><span class=\"p\">:</span> <span class=\"nb\">sorted</span><span class=\"p\">([</span><span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">k</span><span class=\"p\">),</span> <span class=\"n\">_tree</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)]</span> <span class=\"k\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span> <span class=\"n\">v</span> <span class=\"ow\">in</span> <span class=\"n\">value</span><span class=\"o\">.</span><span class=\"n\">items</span><span class=\"p\">()))</span>\n<span class=\"w\">                                                   </span><span class=\"pm\">~~~~~^^^</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">69</span>, in <span class=\"n\">_tree</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">_foreign</span><span class=\"p\">(</span><span class=\"n\">value</span><span class=\"p\">)</span>\n  File <span class=\"nb\">\"/Users/artyom.voronin/projects/ediechain/src/ediechain/core/encode.py\"</span>, line <span class=\"m\">62</span>, in <span class=\"n\">_foreign</span>\n<span class=\"w\">    </span><span class=\"k\">raise</span> <span class=\"n\">EncodeError</span><span class=\"p\">(</span><span class=\"sa\">f</span><span class=\"s2\">\"cannot encode </span><span class=\"si\">{</span><span class=\"n\">tag</span><span class=\"si\">}</span><span class=\"s2\">\"</span><span class=\"p\">)</span>\n<span class=\"gr\">ediechain.core.encode.EncodeError</span>: <span class=\"n\">cannot encode function</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "ZBNS",
+      "code_hash": "6803aae7e0696184e6f8c9763c18a9a7",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IlMC",
+      "code_hash": "6da2de4d6c4398a8d72455223e696e4a",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "VYob",
+      "code_hash": "b83f76a0dc545470d44996938aa10197",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "2ed46c4f7b0c5892ac35a709ff6ea1a2",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "6803aae7e0696184e6f8c9763c18a9a7",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "d2e17d03a768a477ad3cd8dd83f08cd3",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "59339dbe9b29c890a578d201ac1b3f38",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "f6f3f1d6bc50ac62828bae986bacf4b0",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "fab077784b4845f97ad9f46f13cbd0bc",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "6290b72b3c3ce736995506791cc31f5e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"what-landed-in-the-store\">What landed in the store</h2>\n<span class=\"paragraph\">One directory per node, named by its key, holding the artifact and its <code>run_info.json</code>.\nChange the seed above and only the branches that depend on it are recomputed.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "93fd98b7c1834e7a760754381e2823cb",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "3e199e5da9d136796e0b4d4475b528e7",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (EncodeError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    }
+  ]
+}

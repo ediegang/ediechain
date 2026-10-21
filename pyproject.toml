@@ -1,0 +1,102 @@
+[project]
+name = "ediechain"
+version = "0.0.0"
+description = "A task graph for research pipelines: a task is a function, an artifact is addressed by the arguments that produced it."
+readme = "README.md"
+requires-python = ">=3.13"
+authors = []
+
+
+dependencies = [
+    "msgspec>=0.22.0",
+]
+
+[project.optional-dependencies]
+accelerate = ["accelerate>=1.15.0"]
+backends = ["numpy>=2.0", "polars>=1.0"]
+all = ["ediechain[accelerate,backends]"]
+
+[dependency-groups]
+dev = [
+    "accelerate>=1.15.0",
+    "numpy>=2.5.3",
+    "polars>=1.44.2",
+    "pytest",
+    "ruff",
+    "ty>=0.0.84",
+]
+
+tools = [
+    "debugpy",
+    "marimo>=0.25.1",
+]
+
+[[tool.uv.index]]
+name = "seznam-pypi-staging"
+url = "https://pypi-staging.repo.ops.iszn.cz/simple"
+publish-url = "https://pypi-staging.repo.ops.iszn.cz/local/vyzkum-brno/pypi"
+explicit = true
+
+[build-system]
+requires = ["uv_build>=0.8.24,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+preview = true
+target-version = "py313"
+
+[tool.ruff.format]
+indent-style = "space"
+
+[tool.ruff.lint]
+select = [
+    "E",     # pycodestyle errors (includes E3xx blank line rules in preview)
+    "W",     # pycodestyle warnings
+    "F",     # Pyflakes
+    "I",     # isort
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "B",     # flake8-bugbear
+    "SIM",   # flake8-simplify
+    "C4",    # flake8-comprehensions
+    "PIE",   # flake8-pie
+    "T20",   # flake8-print
+    "RET",   # flake8-return
+    "TCH",   # flake8-type-checking
+    "ANN",   # flake8-annotations
+    "S",     # flake8-bandit
+    "ERA",   # eradicate
+]
+
+# Ignore specific rules that are too strict or not needed for this project
+ignore = [
+    "S101",    # Use of `assert` detected
+    "T201",    # `print` found - allow prints for this test project
+    "D",       # pydocstyle - disable all docstring rules for now
+    "ANN002",  # typing for *args
+    "ANN003",  # typing for **kwargs
+    "ANN401",   # dynamically typed expressions (typing.Any) are disallowed
+    "SIM108",   # prefered ternary operator instead of `if-else` block
+    "S404",     # `subprocess` module is possibly insecure
+    "S603",     # `subprocess` call: check for execution of untrusted input, it is caused by subprocess.run
+    "SIM103",   # Return the condition directly -> for more explicit if-else sequences
+    "B026",     # Star-arg unpacking after a keyword argument is strongly discouraged
+    "N818",     # Exception name should be named with an Error suffix
+    "TC001",    # Move application import into a type-checking block.
+    "TC003",    # Move standard library import `pathlib.Path` into a type-checking block
+    "RET504",   # Unnecessary assignment
+    "S311",     # Standard pseudo-random generators are not suitable for cryptographic purposes
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests use bare functions, touch internals to assert caching, and access fakes' helpers.
+"tests/**" = [
+    "ANN001",  # missing argument type annotations
+    "ANN201",  # missing return type annotations
+    "ANN202",  # missing return type for private functions
+    "SLF001",  # private-member access (intentional: asserting cache internals)
+    "S105",    # possible hardcoded password (false positive on fixture strings)
+    "B903",    # class could be a dataclass (fixtures are deliberately plain classes)
+]
